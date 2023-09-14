@@ -1,7 +1,9 @@
 import AddTask from "./components/AddTask";
 import TodoList from "./components/TodoList";
+import { getAllTodos } from "../../api";
 
-export default function Home() {
+export default async function Home() {
+  const tasks = await getAllTodos();
   return (
     <main>
       <div className="max-w-4xl mx-auto mt-4"></div>
@@ -9,7 +11,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">Todo List App</h1>
         <AddTask />
       </div>
-      <TodoList />
+      <TodoList tasks={tasks} />
     </main>
   )
 }
