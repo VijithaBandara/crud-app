@@ -1,6 +1,7 @@
 import React from "react";
 import {AiOutlinePlus} from 'react-icons/ai'
 import {ITask} from "../../../types/tasks";
+import Task from "./Task";
 
 interface TodoListProps{
   tasks: ITask[]
@@ -17,10 +18,7 @@ const TodoList: React.FC<TodoListProps> = ({tasks}) => {
       </thead>
       <tbody>
         {tasks.map((task) =>(
-          <tr key={task.id}>
-          <td>{task.text}</td>
-          <td>Blue</td>
-        </tr>
+          <Task key={task.id} task={task} />
         ))}
       </tbody>
     </table>
